@@ -117,7 +117,8 @@ class RestaurantController extends Controller
         if($request->has('check')) {
             $query .= ", customfieldrecords cfr WHERE p.iID=cfr.iRecordID AND cfr.iType=4 AND (";
             foreach($request->get('check') as $key => $check) {
-                $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$check}) OR ";
+                if($check == 1)
+                    $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$check}) OR ";
             }
             $query = rtrim($query, " OR ");
             $query .= ")";

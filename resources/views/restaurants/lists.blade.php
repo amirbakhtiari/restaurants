@@ -96,7 +96,7 @@
             <div class="row">
                 <form>
                     <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
-                        <input class="form-control" style="border-right: solid 4px #a7221a" type="text" placeholder="خوراک مورد علاقه را جستجو کنید." ng-model="condition.company" ng-keyup="search()">
+                        <input class="form-control" style="border-right: solid 4px #a7221a" type="text" placeholder="نام رستوران را جستجو کنید." ng-model="condition.company" ng-keyup="search()">
                     </div>
                     <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
                         <select class="form-control" style="-moz-appearance: none;-webkit-appearance: none;" ng-model="condition.state" ng-change="search()">
