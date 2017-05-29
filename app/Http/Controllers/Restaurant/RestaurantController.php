@@ -109,6 +109,7 @@ class RestaurantController extends Controller
      * @return mixed
      */
     public function listOfRestaurant(Request $request) {
+
         $res = [];
         $query = "SELECT p.iID, p.sName, p.sCompany, p.sAddress, p.oPicture, p.sWebUserName, p.iImportanceID FROM persons p";
 
@@ -116,13 +117,14 @@ class RestaurantController extends Controller
         if($request->has('check')) {
             $query .= ", customfieldrecords cfr WHERE p.iID=cfr.iRecordID AND cfr.iType=4 AND (";
             foreach($request->get('check') as $key => $check) {
-                $query .= "cfr.iFieldID={$key} OR ";
+                $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$check}) OR ";
             }
             $query = rtrim($query, " OR ");
-            
-            $query .= ") AND cfr.iValue=1 GROUP BY p.iID";
-            dd($query);
+            $query .= ")";
         }
+        $query .= " GROUP BY p.iID";
+
+        dd($query);
 
         $restaurants = Person::restaurant()->select([ 'iID', 'oPicture', 'sAddress', 'sWebUserName', 'sCompany', 'iImportanceID', 'sName' ])
             ->orderBy('iImportanceID', 'DESC')->paginate(COUNT_ITEMS_PER_PAGE);

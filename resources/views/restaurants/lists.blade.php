@@ -119,7 +119,6 @@
                             <i class="fa fa-bars"></i>جستجو بر اساس
                         </header><!-- start header cart -->
                     </div>
-                    
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="search-restaurant">
                             <div ng-repeat="cf_list in cf_lists">
