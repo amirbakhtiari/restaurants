@@ -1,0 +1,16 @@
+/vendor
+/node_modules
+/bower_components
+/public
+/storage
+/tests
+/.idea
+/resources/assets/css/home
+resources/assets/js/
+resources/assets/css/seller
+*.scc
+Homestead.yaml
+Homestead.json
+.env
+.env.example
+

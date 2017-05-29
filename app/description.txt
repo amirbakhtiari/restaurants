@@ -1,0 +1,28 @@
+این برنامه به دلیل اینکه با منطق نسخه دسکتاپ در ارتباط بوده و باید سفارشات ثبت شده و مدیریت برنامه و برخی تنظیمات در
+نسخه exe تظیم شود -قسمت لاگین و ثبت نام به صورت دستی نوشته شده و از خود لاراول استفاده نشده
+و به دلیل تصمیم مدیریت از web service استفاده نشده!!!
+rule:
+
+variable name : $varName or $var_name
+method name: methodName()
+class name: ClassName
+const name: CONST_NAME
+
+-----------------------------------------------------
+style of define method:
+public function methodName($params....) ---> {
+
+} <--
+
+all code block, above look like code block(if, switch, for, while, do, try catch, and every block)
+
+-----------------------------------------------------
+directory structure
+app
+ |
+ |-----define model----Model
+ |-----define new class---Utility
+ |-----define helper function---helper.php
+ |
+
+

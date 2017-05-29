@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.0.0",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0",
+    "laravel-elixir-browsersync": "^0.1.5",
+    "laravel-elixir-livereload": "^1.1.6"
+  },
+  "dependencies": {
+    "angular-chart.js": "^1.0.2",
+    "angular-ui-router": "^0.3.1",
+    "time-require": "^0.1.2"
+  }
+}
