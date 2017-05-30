@@ -101,13 +101,13 @@
                     <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
                         <select class="form-control" style="-moz-appearance: none;-webkit-appearance: none;" ng-model="condition.state" ng-change="search()">
                             <option  ng-selected="true" value="0"> انتخاب استان</option>
-                            <option value="کرج">کرج</option>
+                            <option value="البرز">البرز</option>
                             <option value="هرمزگان">هرمزگان</option>
                         </select>
                     </div>
                     <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
                         <select class="form-control" style="-moz-appearance: none;-webkit-appearance: none;" ng-model="condition.city" ng-change="search()">
-                            <option ng-selected="true"> انتخاب استان</option>
+                            <option ng-selected="true"> انتخاب شهر</option>
                             <option ng-repeat="city in condition.cities"><%city%></option>
                         </select>
                     </div>
@@ -128,6 +128,7 @@
                                 <div ng-if="cf_list.iType=={{LIST_ITEM_FIELD}}">
                                     <strong ng-bind="cf_list.sName"></strong>
                                     <select ng-change="search()" ng-model="condition.type[cf_list.iID]">
+                                        <option value="0" selected>انتخاب کنید</option>
                                         <option ng-repeat="cf_item in cf_items" ng-if="cf_list.iID==cf_item.iFieldID" value="<%cf_item.iID%>"><%cf_item.sValue%></option>
                                     </select>
                                 </div>

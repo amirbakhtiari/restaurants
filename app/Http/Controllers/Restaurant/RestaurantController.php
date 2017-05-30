@@ -111,21 +111,48 @@ class RestaurantController extends Controller
     public function listOfRestaurant(Request $request) {
 
         $res = [];
-        $query = "SELECT p.iID, p.sName, p.sCompany, p.sAddress, p.oPicture, p.sWebUserName, p.iImportanceID FROM persons p";
+        $query = 'SELECT p.iID, p.sName, p.sCompany, p.sAddress, p.oPicture, p.sWebUserName, p.iImportanceID FROM persons p';
+
+        if($request->has('type') or $request->has('check') or $request->has('name'))
+            $query .= ', customfieldrecords cfr WHERE p.iID=cfr.iRecordID AND (';
+
+        $fieldType = '';
+        if($request->has('check'))
+            $fieldType .= 'cfr.iType=4';
+
+        if($request->has('type')) {
+            $fieldType .= ' OR cfr.iType=7';
+            if(!$request->has('check'))
+                $fieldType = substr($fieldType, 3);
+        }
+
+        if($request->has('name')) {
+            $fieldType .= ' OR cfr.iType=3';
+            if(!$request->has('check') and !$request->has('type'))
+                $fieldType = substr($fieldType, 3);
+        }
+
+        if($request->has('type') or $request->has('check') or $request->has('name')) {
+            $fieldType .= ')';
+            $query .= $fieldType;
+        }
 
         //-> boolean field
         if($request->has('check')) {
-            $query .= ", customfieldrecords cfr WHERE p.iID=cfr.iRecordID AND cfr.iType=4 AND (";
-            foreach($request->get('check') as $key => $check) {
-                if($check == 1)
-                    $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$check}) OR ";
+            $query .= " AND (";
+            foreach($request->get('check') as $key => $value) {
+                $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$value}) OR ";
             }
             $query = rtrim($query, " OR ");
             $query .= ")";
         }
+        
+        //-> combo box field
+//        if($request->has('type')) {
+//            $query .= " AND c"
+//        }
         $query .= " GROUP BY p.iID";
 
-        dd($query);
 
         $restaurants = Person::restaurant()->select([ 'iID', 'oPicture', 'sAddress', 'sWebUserName', 'sCompany', 'iImportanceID', 'sName' ])
             ->orderBy('iImportanceID', 'DESC')->paginate(COUNT_ITEMS_PER_PAGE);
