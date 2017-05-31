@@ -123,12 +123,11 @@
                         <div class="search-restaurant">
                             <div ng-repeat="cf_list in cf_lists">
                                 <div class="inputs-search-services" ng-if="cf_list.iType=={{STRING_FILED}}">
-                                    <input class="form-control string-style" type="text" ng-keyup="search()" placeholder="<%cf_list.sName%>" ng-model="condition.name[cf_list.iID]"/>
+                                    <input class="form-control string-style" type="text" ng-keyup="search()" placeholder="<%cf_list.sName%>" ng-model="condition.names[cf_list.iID]"/>
                                 </div>
                                 <div ng-if="cf_list.iType=={{LIST_ITEM_FIELD}}">
                                     <strong ng-bind="cf_list.sName"></strong>
-                                    <select ng-change="search()" ng-model="condition.type[cf_list.iID]">
-                                        <option value="0" selected>انتخاب کنید</option>
+                                    <select ng-change="search()" ng-model="condition.type[cf_list.iID]" >
                                         <option ng-repeat="cf_item in cf_items" ng-if="cf_list.iID==cf_item.iFieldID" value="<%cf_item.iID%>"><%cf_item.sValue%></option>
                                     </select>
                                 </div>

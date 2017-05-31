@@ -65,7 +65,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
    Route::get('/logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
    Route::post('/updateProfile', ['as' => 'user.profile.update', 'uses' => 'UserController@updateProfile']);
    Route::resource('/favorite', 'FavoriteController', ['only' =>
-                                                        ['index', 'store', 'destroy'] ]);
+       ['index', 'store', 'destroy'] ]);
    Route::resource('/group', 'GroupController', ['only' => ['index', 'store', 'edit', 'update', 'destroy']]);
    Route::get('/detailorder/{num}', 'UserController@showDetailOrder');
    Route::post('/profileimage', 'UserController@uploadImageProfile');
