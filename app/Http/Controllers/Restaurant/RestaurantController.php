@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Restaurant;
 use App\Jobs\SendActivationCode;
 use App\Model\Address;
 use App\Model\CustomFieldItems;
+use App\Model\CustomFieldRecords;
 use App\Model\CustomFields;
 use App\Model\Factor;
 use App\Model\FactorStuff;
 use App\Model\GeneralGroup;
 use App\Model\Person;
 use App\Model\ProductStuff;
+use App\RestaurantFilters;
 use App\Utility\SMS;
 use App\Utility\Utility;
 use Cart;
@@ -104,69 +106,10 @@ class RestaurantController extends Controller
                 'code' => Person::find($seller)->sWebActiveCode
             ], 200);
     }
-    /**نمایش رستورانها
-     * @param Request $request
-     * @return mixed
-     */
-    public function listOfRestaurant(Request $request) {
 
-        $res = [];
-        $query = 'SELECT p.iID, p.sName, p.sCompany, p.sAddress, p.oPicture, p.sWebUserName, p.iImportanceID FROM persons p';
-
-        if($request->has('type') or $request->has('check') or $request->has('names'))
-            $query .= ', customfieldrecords cfr WHERE p.iID=cfr.iRecordID AND (';
-
-        $fieldType = '';
-        if($request->has('check'))
-            $fieldType .= 'cfr.iType=4';
-
-        if($request->has('type')) {
-            $fieldType .= ' OR cfr.iType=7';
-            if(!$request->has('check'))
-                $fieldType = substr($fieldType, 3);
-        }
-        if($request->has('names')) {
-            $fieldType .= ' OR cfr.iType=3';
-            if(!$request->has('check') and !$request->has('type'))
-                $fieldType = substr($fieldType, 3);
-        }
-        if($request->has('type') or $request->has('check') or $request->has('names')) {
-            $fieldType .= ')';
-            $query .= $fieldType;
-        }
-        //-> boolean field
-        if($request->has('check')) {
-            $query .= " AND (";
-            foreach($request->get('check') as $key => $value) {
-                if($value == 1)
-                    $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$value}) OR ";
-            }
-            $query = rtrim($query, " AND () ");
-        }
-        //-> combo box field
-        if($request->has('type')) {
-            if(!$request->has('names') and !$request->has('check'))
-                $query .= " AND (";
-            foreach($request->get('type') as $key => $value) {
-                $query .= "(cfr.iFieldID={$key} AND cfr.iValue={$value}) OR ";
-            }
-        }
-        //-> combo string
-        if($request->has('names')) {
-            if(!$request->has('check') and !$request->has('type'))
-                $query .= " AND (";
-            foreach($request->get('names') as $key => $value) {
-                $query .= "(cfr.iFieldID={$key} AND cfr.sValue='{$value}') OR ";
-            }
-        }
-        if($request->has('type') or $request->has('check') or $request->has('names')) {
-            $query = rtrim($query, " OR ");
-            $query .= ")";
-            $query .= " GROUP BY p.iID";
-        }
-
-        $query .= " ORDER BY p.iImportanceID DESC";
-        $restaurants = DB::select($query);
+    public function listOfRestaurant(RestaurantFilters $filters) {
+        return CustomFieldRecords::filter($filters)->get();
+        exit();
         foreach ($restaurants as $restaurant) {
             $res[] = [
                 'id' => $restaurant->iID,

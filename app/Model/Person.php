@@ -125,4 +125,8 @@ class Person extends Model
     public function scopeRestaurant($query) {
         return $query->where('iWebState', ACTIVE_STATE)/*->where('iKind', SELLER)*/;
     }
+
+    public function customRecords() {
+        return $this->hasMany('App\Model\CustomFieldRecords', 'iRecordID', 'iID');
+    }
 }

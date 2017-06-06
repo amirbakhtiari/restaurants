@@ -1,7 +1,6 @@
 @extends('master')
 @section('title', 'لیست رستوران ها')
 @section('index')
-
     @include('home.header')
     <section id="services" class="pattern" ng-controller="RestListCtrl">
         <div class="modal fade" id="fav-modal">
@@ -88,101 +87,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
+        <ui-view></ui-view>
 
-        <div class="container-fluid" id="service-container-restaurants">
-            <div class="row">
-                <form>
-                    <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
-                        <input class="form-control" style="border-right: solid 4px #a7221a" type="text" placeholder="نام رستوران را جستجو کنید." ng-model="condition.company" ng-keyup="search()">
-                    </div>
-                    <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
-                        <select class="form-control" style="-moz-appearance: none;-webkit-appearance: none;" ng-model="condition.state" ng-change="search()">
-                            <option  ng-selected="true" value="0"> انتخاب استان</option>
-                            <option value="البرز">البرز</option>
-                            <option value="هرمزگان">هرمزگان</option>
-                        </select>
-                    </div>
-                    <div class="form-group input-group col-md-4 col-sm-4 col-xs-12">
-                        <select class="form-control" style="-moz-appearance: none;-webkit-appearance: none;" ng-model="condition.city" ng-change="search()">
-                            <option ng-selected="true"> انتخاب شهر</option>
-                            <option ng-repeat="city in condition.cities"><%city%></option>
-                        </select>
-                    </div>
-                </form>
-
-                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 listSidebar">
-                    <div id="checkout-cart">
-                        <header style="padding: 10px">
-                            <i class="fa fa-bars"></i>جستجو بر اساس
-                        </header><!-- start header cart -->
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="search-restaurant">
-                            <div ng-repeat="cf_list in cf_lists">
-                                <div class="inputs-search-services" ng-if="cf_list.iType=={{STRING_FILED}}">
-                                    <input class="form-control string-style" type="text" ng-keyup="search()" placeholder="<%cf_list.sName%>" ng-model="condition.names[cf_list.iID]"/>
-                                </div>
-                                <div ng-if="cf_list.iType=={{LIST_ITEM_FIELD}}">
-                                    <strong ng-bind="cf_list.sName"></strong>
-                                    <select ng-change="search()" ng-model="condition.type[cf_list.iID]" >
-                                        <option ng-repeat="cf_item in cf_items" ng-if="cf_list.iID==cf_item.iFieldID" value="<%cf_item.iID%>"><%cf_item.sValue%></option>
-                                    </select>
-                                </div>
-                                <div ng-if="cf_list.iType=={{BOOLEAN_FILED}}" >
-                                    <div class="checkbox-section">
-                                        <div class="checkbox">
-                                            <input class="form-control" type="checkbox" id="checked-car-<%$index%>" ng-model="condition.check[cf_list.iID]" ng-false-value="'0'" ng-true-value="'1'" ng-change="search()">
-                                            <label for="checked-car-<% $index %>"></label>
-                                        </div>
-                                        <span ng-bind="cf_list.sName"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end aside -->
-                <div  class="col-md-9 col-lg-9 col-sm-12 col-xs-12" style="padding: 0">
-                    <div class=" col-lg-12 col-md-12 col-xs-12 xol-sm-12 col-centered white_block">
-
-                        <div class="services_panel" ng-repeat="restaurant in restaurants">
-                            <div class="col-md-3">
-                                <div class="panel text-center">
-                                    <a href="restaurant/<%restaurant.company%>"></a>
-
-                                    <img ng-if="restaurant.picture" ng-src="data:image/jpeg;base64,<% restaurant.picture %>"/>
-                                    <img ng-if="!restaurant.picture" ng-src="{{'img/noimage.jpg'}}"/>
-                                    <p ng-bind="restaurant.address"></p>
-
-                                        <a style="font-size: 20px" data-target="#fav-modal" data-toggle="modal"  ng-click="productSelect(restaurant)"><i class="fa fa-star"></i></a>
-                                        <a style="font-size: 20px" data-target="#complain-modal" data-toggle="modal"  ng-click="productSelect(restaurant)"><i class="fa fa-comments-o"></i></a>
-
-                                    <button class="btn center-block btn-success">
-                                        <a class="list-text" href="restaurant/<%restaurant.company%>"><div class="teamname"><h5 ng-bind="restaurant.name"></h5></div></a>
-
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class=" col-md-12">
-                        <ul class="pagination">
-                            <li ng-class="{disabled: current_page == 1}"><a class="fa fa-chevron-right" ng-click="getPage(current_page - 1)"></a></li>
-                            <li ng-repeat="page in pages" ng-class="{active: current_page == page}">
-                                <a ng-click="getPage(page)"><%$index + 1%></a>
-                            </li>
-                            <li ng-class="{disabled: current_page >= last_page}"><a class="fa fa-chevron-left" ng-click="getPage(current_page + 1)"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <img ng-src="img/ajax-loader.png" ng-show="loading_list && restaurants" style="height: 100px;" />
-            </div>
-        </div><!-- end .row div -->
         <!-- /container-->
     </section>
     @include('home.footer')

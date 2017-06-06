@@ -65,7 +65,7 @@
                         </li>
                     @endif
                     <li><a href="{{route('restaurant.register.page')}}">ثبت رستوران</a></li>
-                    <li><a href="{{route('restaurants.list')}}">رستوران ها</a></li>
+                    <li><a href="{{route('restaurants.list')}}#/lists">رستوران ها</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
