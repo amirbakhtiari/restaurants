@@ -106,3 +106,6 @@ Route::group(['namespace' => 'Cart'], function() {
    Route::resource('cart', 'CartController');
 });
 
+Route::resource('news', 'NewsController');
+
+

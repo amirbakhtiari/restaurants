@@ -80,7 +80,7 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-6 col-lg-push-6">
+                    <div class="col-lg-4 col-lg-push-8">
                         <div class="input-set">
                             <label>استان * :</label>
                             <i class="fa fa-area-chart"></i>
@@ -91,7 +91,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-lg-pull-6">
+                    <div class="col-lg-4 ">
                         <div class="input-set">
                             <label>شهر * :</label>
                             <i class="fa fa-circle-thin"></i>
@@ -99,6 +99,14 @@
                                 <option ng-selected="true">نام شهر</option>
                                 <option ng-repeat="name in city" value="<%name%>"><%name%></option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-pull-8">
+                        <div class="input-set">
+                            <label>منطقه * :</label>
+                            <i class="fa fa-map-marker"></i>
+                            {!! Form::text('zone', null, ['class' => 'form-control', 'autocomplete' => 'off', 'ng-model' => 'registerForm.zone']) !!}
+
                         </div>
                     </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\News;
 use App\Model\Person;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,10 @@ class HomeController extends Controller
 
     public function rules() {
         return view('restaurants.rules');
+    }
+
+    public function recipe() {
+        return view('restaurants.recipe');
     }
 }
 

@@ -47,6 +47,7 @@
                                 </div>
                             </div>
                             <button type="button" ng-click="addFavorite()" class="btn btn-success-custom pull-left"><%favorite_button_title%></button>
+                        
                         </div>
                     </div>
                 </div>

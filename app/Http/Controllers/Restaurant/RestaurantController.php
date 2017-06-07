@@ -107,24 +107,28 @@ class RestaurantController extends Controller
             ], 200);
     }
 
-    public function listOfRestaurant(RestaurantFilters $filters) {
-        return CustomFieldRecords::filter($filters)->get();
-        exit();
-        foreach ($restaurants as $restaurant) {
+    public function listOfRestaurant(RestaurantFilters $filters, Request $request) {
+        $filters = CustomFieldRecords::filter($filters)->get();
+        dd($filters);
+        foreach($filters as $filter) {
+            $persons[] = Person::find($filter->iRecordID);
+        }
+
+        foreach ($persons as $restaurant) {
+
             $res[] = [
-                'id' => $restaurant->iID,
-                'picture' => base64_encode($restaurant->oPicture),
-                'address' => $restaurant->sAddress,
-                'username' => $restaurant->sWebUserName,
-                'name' => $restaurant->sName,
-                'company' => $restaurant->sCompany,
-                'iImportanceID' => $restaurant->iImportanceID
+                'id' => $restaurant['iID'],
+                'picture' => base64_encode($restaurant['oPicture']),
+                'address' => $restaurant['sAddress'],
+                'username' => $restaurant['sWebUserName'],
+                'name' => $restaurant['sName'],
+                'company' => $restaurant['sCompany'],
+                'iImportanceID' => $restaurant['iImportanceID']
 //                'cfr' => $restaurant->iValue
             ];
         }
 
         if($request->ajax()) :
-
             return json_encode([
                 'restautants' => $res,
                 'pages' => [

@@ -6,7 +6,8 @@
 <style>
     .angular-google-map-container { height: 300px; }
 </style>
-<div class="slider-container" ng-controller="IndexController">
+<div ng-controller="IndexController">
+<div class="slider-container">
     @if(!Session::has('customer_login'))
         <ul id="slider-container-ul">
             <li><a href="{{route('user.login.page')}}" class="btn btn-default">بخش کاربران</a></li>
@@ -276,59 +277,49 @@
 <section class="pattern">
     <div class="container-fluid" id="service-container" style="padding-bottom: 50px">
         <h3 style="text-align: center">اخبار و اطلاعیه ها</h3>
-        <div class="col-md-2 col-sm-4">
-            <div class="panel panel-default">
 
-                <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner1.png' class="img-responsive"></div>
-                <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
-                <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">اخبار عمومی</a></li>
+            <li><a data-toggle="tab" href="#menu1"> مراسم و جشن</a></li>
+            <li><a data-toggle="tab" href="#menu2">خبر های ویژه</a></li>
+        </ul>
+        <br>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="col-md-3  col-sm-6" ng-repeat='ns in news'>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="background-color: #fff"><h6><%ns.sTitle%></h6><img ng-src='data:image/jpeg;base64,<%ns.oPicture%>' class="img-responsive"></div>
+                        <div class="panel-body text-justify" style="background-color: #fff">
+                            <%ns.sDesc.substr(0, 40)%>
+                        </div>
+                        <div class="panel-footer"><a ng-href='news/<%ns.iID%>'>جزییات بیشتر خبر</a> </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+
+                <div class="col-md-3  col-sm-6">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner1.png' class="img-responsive"></div>
+                        <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
+                        <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
+                    </div>
+                </div>
+                <div class="col-md-3  col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner2.jpg' class="img-responsive"></div>
+                        <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
+                        <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu2" class="tab-pane fade">
             </div>
         </div>
-        <div class="col-md-2  col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner2.jpg' class="img-responsive"></div>
-                <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
-                <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
-            </div>
-        </div>
-
-        <div class="col-md-2  col-sm-4">
-            <div class="panel panel-default">
-
-                <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner1.png' class="img-responsive"></div>
-                <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
-                <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
-            </div>
-        </div>
-        <div class="col-md-2  col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner2.jpg' class="img-responsive"></div>
-                <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
-                <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
-            </div>
-        </div>
-        <div class="col-md-2  col-sm-4">
-            <div class="panel panel-default">
-
-                <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner1.png' class="img-responsive"></div>
-                <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
-                <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
-            </div>
-        </div>
-        <div class="col-md-2  col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #fff"><h6>تیتر خبر در این قسمت</h6><img src='img/banner2.jpg' class="img-responsive"></div>
-                <div class="panel-body text-justify" style="background-color: #fff"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته</div>
-                <div class="panel-footer"><a>جزییات بیشتر خبر</a> </div>
-            </div>
-        </div>
-
-
     </div>
 </section>
-
-
-
+</div>
 @include('home.footer')
 @endsection
 @section('script')

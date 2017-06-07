@@ -15,7 +15,7 @@ class Person extends Model
     protected $primaryKey = "iID";
     protected $table = "persons";
     protected $fillable = ['iID', 'sName', 'sFamily', 'sNationalCode', 'sEmail', 'sTel1', 'sMobile1', 'sDesc', 'iKind', 'bReal',
-        'sPerson', 'sAddress', 'sCode', 'dateCreate', 'sWebUserName', 'sWebPassword', 'dateWebCreate', 'iWebState', 'sCompany', 'iCode', 'sWebActiveCode', 'iHesabTafsilyCode', 'iHesabTafsilyCode2', 'iMr', 'sCity', 'sState', 'dGPSx', 'dGPSy'];
+        'sPerson', 'sAddress', 'sCode', 'dateCreate', 'sWebUserName', 'sWebPassword', 'dateWebCreate', 'iWebState', 'sCompany', 'iCode', 'sWebActiveCode', 'iHesabTafsilyCode', 'iHesabTafsilyCode2', 'iMr', 'sCity', 'sState', 'dGPSx', 'dGPSy', 'sZone'];
     protected $perPage = 30;
     private static $filed = ['iID', 'iWebState', 'iKind', 'iCode', 'sName', 'sEmail', 'sTel1', 'sFamily', 'dateCreate', 'dateWebCreate', 'sMobile1', 'sWebUserName', 'sWebPassword', 'iMr', 'dateBirth', 'sDesc'];
     /**
@@ -69,6 +69,7 @@ class Person extends Model
                     'sEmail'            => trim($request->email),
                     'sTel1'             => $request->landlinePhone,
 //                    'sMobile1'        => $request->mobile,
+                    'sZone'             => $request->zone,
                     'sAddress'          => $request->address,
                     'sDesc'             => $request->desc,
                     'iKind'             => $type,
