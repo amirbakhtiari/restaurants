@@ -118,7 +118,9 @@ class RestaurantController extends Controller
                 'username' => $person['sWebUserName'],
                 'name' => $person['sName'],
                 'company' => $person['sCompany'],
-                'iImportanceID' => $person['iImportanceID']
+                'iImportanceID' => $person['iImportanceID'],
+                'state' => $person['sState'],
+                'city' => $person['sCity']
 //                'cfr' => $restaurant->iValue
             ];
         }
@@ -267,5 +269,9 @@ class RestaurantController extends Controller
         $lng = $request->lng;
         $query = "SELECT dGPSx latitude, dGPSy longitude FROM persons WHERE iKind=1 AND (dGPSx<={$lng} AND dGPSy>={$lng}) OR (dGPSx<={$lat} AND dGPSy>={$lat}) OR (dGPSx>={$lat} AND dGPSy<={$lng});";
         return response()->json(DB::select($query), 200);
+    }
+
+    public function newrestaurant(Request $request) {
+        return Person::restaurant()->select('iID', 'sName', 'sCompany')->where('sState', $request->state)->orderBy('dateCreate', 'DESC')->limit(1)->get();
     }
 }

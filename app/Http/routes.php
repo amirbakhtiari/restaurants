@@ -51,6 +51,7 @@ Route::group(['namespace' => 'Restaurant'], function() {
    Route::resource('complaint', 'ComplaintController', ['except' => ['create']]);
    Route::any('activation', 'RestaurantController@activation');
    Route::get('findRestaurants', 'RestaurantController@findRestaurants');
+   Route::get('newrestaurant', 'RestaurantController@newrestaurant');
 });
 /**
  * user routes

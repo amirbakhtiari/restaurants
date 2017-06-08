@@ -18,7 +18,7 @@
                 <li>جدیدترین رستوران <%footer.areaName%></li>
                 <hr>
                 <div class="col-md-4">
-                    <li></span>&nbsp;&nbsp;&nbsp;<span><%footer.restaurantName%></span></li>
+                    <li>&nbsp;&nbsp;&nbsp;<span><a href="restaurant/<%footer.restaurantName[0].sCompany%>" target="_blank"><%footer.restaurantName[0].sName%></a></span></li>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -27,29 +27,30 @@
                 <li><span><a href="{{route('home.index')}}">صفحه اصلی </a></span></li>
                 <li><span><a href="{{route('restaurant.register.page')}}">ثبت رستوران</a></span></li>
                 <li><span><a href="{{route('restaurants.list')}}">لیست رستوران ها</a></span></li>
-                <li><span><a href="{{route('about.page')}}">درباره های پرس</a></span></li>
+                <li><span><a href="{{route('about.page')}}">درباره ما</a></span></li>
                 <li><span><a href="{{route('contact.page')}}">تماس با های پرس</a></span></li>
-                <li><span><a href="{{route('home.rules')}}">قوانین سایت</a></span></li>
+                <li><span><a href="{{route('home.rules')}}">قوانین و مقررات</a></span></li>
+                <li><span><a href="#">ثبت شکایات</a></span></li>
                 <li><span>سوالات متداول</span></li>
             </div>
             <div class="col-md-3 col-sm-6">
                 <li>اطلاعات تماس</li>
                 <hr>
-                <li><span class="fa fa-location-arrow"></span>&nbsp;&nbsp;&nbsp;<span>02634312845 </span></li>
+                {{--<li><span class="fa fa-location-arrow"></span>&nbsp;&nbsp;&nbsp;<span>02634312845 </span></li>--}}
                 <li><span class="fa fa-phone"></span>&nbsp;&nbsp;&nbsp;<span>استان البرز، کرج، باغستان، گلستان 2</span></li>
-                <li><span class="fa fa-envelope"></span>&nbsp;&nbsp;&nbsp;<span>info@hipors.ir</span></li>
+                <li><span class="fa fa-envelope"></span>&nbsp;&nbsp;&nbsp;<span>myhipors@gmail.com</span></li>
                 <li><span class="fa fa-laptop"></span>&nbsp;&nbsp;&nbsp;<span>www.hipors.ir</span></li>
-                <li><span class="fa fa-mobile"></span>&nbsp;&nbsp;&nbsp;<span>09125901065</span></li>
+                {{--<li><span class="fa fa-mobile"></span>&nbsp;&nbsp;&nbsp;<span>09125901065</span></li>--}}
             </div>
             <div class="col-md-2 col-sm-6">
                 <li> شبکه ها</li>
                 <hr>
-                <li><span class="fa fa-facebook"></span>&nbsp;&nbsp;<span>فیسبوک</span></li>
-                <li><span class="fa fa-twitter"></span>&nbsp;&nbsp;<span>توییتر</span></li>
-                <li><span class="fa fa-instagram"></span>&nbsp;&nbsp;<span>اینستاگرام</span></li>
-                <li><span class="fa fa-youtube"></span>&nbsp;&nbsp;<span>یوتیوب</span></li>
-                <li><span class="fa fa-youtube-play"></span>&nbsp;&nbsp;<span>آپارات</span></li>
-                <li><span class="fa fa fa-paper-plane "></span>&nbsp;&nbsp;<span>تلگرام</span></li>
+                {{--<li><span class="fa fa-facebook"></span>&nbsp;&nbsp;<span>فیسبوک</span></li>--}}
+                <li><span class="fa fa-twitter"></span>&nbsp;&nbsp;<span><a href="https://twitter.com/hipors" target="_blank"> توییتر</a></span></li>
+                <li><span class="fa fa-instagram"></span>&nbsp;&nbsp;<span><a href="https://instagram.com/hipors" target="_blank">اینستاگرام</a></span></li>
+                {{--<li><span class="fa fa-youtube"></span>&nbsp;&nbsp;<span>یوتیوب</span></li>--}}
+                {{--<li><span class="fa fa-youtube-play"></span>&nbsp;&nbsp;<span>آپارات</span></li>--}}
+                {{--<li><span class="fa fa fa-paper-plane "></span>&nbsp;&nbsp;<span>تلگرام</span></li>--}}
 
             </div>
         </div>

@@ -14,7 +14,7 @@
 
 
 
-        <div id="map" style="width:100%;height:450px"></div>
+        <div id="map"></div>
 
         <script>
             function myMap() {
@@ -234,14 +234,14 @@
 
 
                 <!-- Contact Form -->
-        <div class="container-fluid" style="padding: 40px ;background-color: white">
+        <div class="container-fluid contact-main">
             <form class="well form-horizontal col-md-6" action=" " method=""  id="contact_form">
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-12 control-label"> نام و نام خانوادگی</label>
                         <div class="col-md-12 inputGroupContainer">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input  name="first_name" placeholder=" نام خود را وارد کنید" class="form-control"  type="text">
                             </div>
                         </div>
@@ -250,7 +250,7 @@
                         <label class="col-md-12 control-label">پست الکترونیک</label>
                         <div class="col-md-12 inputGroupContainer">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input name="email" placeholder="ادرس ایمیل خود را وارد کنید" class="form-control"  type="text">
                             </div>
                         </div>
@@ -259,7 +259,7 @@
                         <label class="col-md-12 control-label"> شماره تماس</label>
                         <div class="col-md-12 inputGroupContainer">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                                 <input name="phone" placeholder="شماره تماس" class="form-control" type="text">
                             </div>
                         </div>
@@ -268,68 +268,65 @@
                         <label class="col-md-12 control-label">متن پیام</label>
                         <div class="col-md-12 inputGroupContainer">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
                                 <textarea class="form-control" name="comment" placeholder="متن پیام خود را در این قسمت وارد کنید"></textarea>
                             </div>
                         </div>
                     </div>
 
-                    {{--<div class="alert alert-success" role="alert" id="success_message"> <i class="glyphicon glyphicon-thumbs-up"></i> پیام شما با موفقیت ارسال شد . با تشکر </div>--}}
 
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-warning" >ارسال  پیام <span class="glyphicon glyphicon-send"></span></button>
+                            <button type="submit" class="btn btn-warning" >ارسال  پیام <span class="fa fa-send"></span></button>
                         </div>
                     </div>
 
                 </fieldset>
             </form>
-            <form class="well form-horizontal col-md-6" action=" " method=""  id="contact_form">
+            <form class="well form-horizontal col-md-6"  id="contact_form">
                 <fieldset>
               <h5>اطلاعات تماس</h5>
                     <br>
                     <div>
-                        <span class="fa fa-phone"></span>&nbsp;&nbsp;&nbsp;<span>تلفن تماس : 02634312845  </span>
+                        <span class="fa fa-phone"></span><span>تلفن تماس : 34312845,34356039,32403809 - 026  </span>
                     </div>
                     <br>
                     <div>
-                        <span class="fa fa-mobile"></span>&nbsp;&nbsp;&nbsp;<span>تلفن همراه : 09125901065  </span>
+                        <span class="fa fa-mobile"></span><span>تلفن همراه : 09125901065  </span>
                     </div>
                     <br>
                     <div>
-                        <span class="fa fa-location-arrow"></span>&nbsp;&nbsp;&nbsp;<span>آدرس : البرز - کرج - خیابان شهید بهشتی - خیابان کمالی (امامی) -پلاک 32  </span>
+                        <span class="fa fa-location-arrow"></span><span>آدرس : البرز - کرج - خیابان شهید بهشتی - خیابان کمالی (امامی) -پلاک 32  </span>
                     </div>
                     <br>
                     <div>
-                        <span class="fa fa-envelope"></span>&nbsp;&nbsp;&nbsp;<span>پست الکترونیک : info@hipors.ir</span>
+                        <span class="fa fa-envelope"></span><span>پست الکترونیک : myhipors@gmail.com</span>
                     </div>
                     <br>
                     <div>
-                        <span class="fa fa-globe"></span>&nbsp;&nbsp;&nbsp;<span>آدرس سایت : www.hipors.ir</span>
+                        <span class="fa fa-globe"></span><span>آدرس سایت : www.hipors.ir</span>
                     </div>
                     <br>
 
                 </fieldset>
             </form>
-            <form class="well form-horizontal col-md-6" action=" " method=""  id="contact_form">
+            <form class="well form-horizontal col-md-6" id="contact_form">
                 <fieldset>
                     <h5>اطلاعات تماس دفتر مرکزی</h5>
                     <br>
                     <div>
-                        <span class="fa fa-phone"></span>&nbsp;&nbsp;&nbsp;<span>تلفن تماس : 02634312845  </span>
+                        <span class="fa fa-phone"></span><span>تلفن تماس : 02634312845  </span>
                     </div>
                     <br>
                     <div>
-                        <span class="fa fa-mobile"></span>&nbsp;&nbsp;&nbsp;<span>تلفن همراه : 09125901065  </span>
+                        <span class="fa fa-mobile"></span><span>تلفن همراه : 09125901065  </span>
                     </div>
                     <br>
-
 
                 </fieldset>
             </form>
         </div>
-
     </div><!-- /.container -->
 </section>
 <!--Section ends -->

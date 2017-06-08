@@ -16,13 +16,13 @@ class RestaurantFilters extends QueryFilters {
     }
 
     public function state($state = '') {
-        if($state != 0)
-            return $this->builder->where('sState', $state);
+        if($state == "0")
+            return $this->builder->where('1');
+        return $this->builder->where('sState', $state);
     }
 
     public function city($city = '') {
-        if($city != 0)
-            return $this->builder->where('sCity', $city);
+        return $this->builder->where('sCity', $city);
     }
 
     public function zone($zone = '') {
