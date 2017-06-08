@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer id="footer">
+<footer id="footer" ng-controller="FooterController">
 
     <div class="container-fluid" id="footer-delivery">
         <div class="col-md-12" style="margin-top: -80px">
@@ -15,32 +15,10 @@
         <div class="col-md-12" style="color: #ffffff">
 
             <div class="col-md-4 col-sm-6">
-                <li>لیست رستوران</li>
+                <li>جدیدترین رستوران <%footer.areaName%></li>
                 <hr>
                 <div class="col-md-4">
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>تهران</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>البرز</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>مشهد</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>اصفهان</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>تبریز</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>آبادان</span></li>
-
-                </div>
-                <div class="col-md-4 ">
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>مازندران</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>گیلان</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>فارس</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>سمنان</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>یزد</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>خوزستان</span></li>
-                </div>
-                <div class="col-md-4">
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>اردبیل</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>قزوین</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>گلستان</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>ایلام</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>کردستان</span></li>
-                    <li></span>&nbsp;&nbsp;&nbsp;<span>ارومیه</span></li>
+                    <li></span>&nbsp;&nbsp;&nbsp;<span><%footer.restaurantName%></span></li>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">

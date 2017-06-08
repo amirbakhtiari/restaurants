@@ -7,7 +7,7 @@ use App\Filterable;
 
 class CustomFieldRecords extends Model
 {
-    use Filterable;
+//    use Filterable;
 
     protected $primaryKey = "iID";
     protected $table = "customfieldrecords";

@@ -18,16 +18,24 @@ abstract class QueryFilters
     public function apply(Builder $builder)
     {
         $this->builder = $builder;
-
         foreach ($this->filters() as $name => $value) {
             if (!method_exists($this, $name)) {
                 continue;
             }
-            foreach($value as $key => $v) {
-                if (strlen($v)) {
-                    $this->$name($v);
+
+            if(!is_array($value)) {
+                if (strlen($value)) {
+                    $this->$name($value);
                 } else {
                     $this->$name();
+                }
+            } else {
+                foreach ($value as $index => $item) {
+                    if (strlen($item)) {
+                        $this->$name($item);
+                    } else {
+                        $this->$name();
+                    }
                 }
             }
         }

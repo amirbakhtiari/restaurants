@@ -108,34 +108,28 @@ class RestaurantController extends Controller
     }
 
     public function listOfRestaurant(RestaurantFilters $filters, Request $request) {
-        $filters = CustomFieldRecords::filter($filters)->get();
-        dd($filters);
-        foreach($filters as $filter) {
-            $persons[] = Person::find($filter->iRecordID);
-        }
-
-        foreach ($persons as $restaurant) {
-
-            $res[] = [
-                'id' => $restaurant['iID'],
-                'picture' => base64_encode($restaurant['oPicture']),
-                'address' => $restaurant['sAddress'],
-                'username' => $restaurant['sWebUserName'],
-                'name' => $restaurant['sName'],
-                'company' => $restaurant['sCompany'],
-                'iImportanceID' => $restaurant['iImportanceID']
+        $filters = Person::filter($filters)->restaurant()->paginate();
+        $restaurant = [];
+        foreach ($filters as $person) {
+            $restaurant[] = [
+                'id' => $person['iID'],
+                'picture' => base64_encode($person['oPicture']),
+                'address' => $person['sAddress'],
+                'username' => $person['sWebUserName'],
+                'name' => $person['sName'],
+                'company' => $person['sCompany'],
+                'iImportanceID' => $person['iImportanceID']
 //                'cfr' => $restaurant->iValue
             ];
         }
-
         if($request->ajax()) :
             return json_encode([
-                'restautants' => $res,
+                'restautants' => $restaurant,
                 'pages' => [
-                    'total_items' => 0,
-                    'cur_page' => 0,
-                    'per_page' => 0,
-                    'last_page' => 10,
+                    'total_items' => $filters->total(),
+                    'cur_page' => $filters->currentPage(),
+                    'per_page' => $filters->perPage(),
+                    'last_page' => $filters->lastPage(),
                 ]
             ]);
         endif;

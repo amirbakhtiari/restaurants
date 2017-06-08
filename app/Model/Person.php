@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Filterable;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
@@ -11,12 +12,14 @@ use DB;
  */
 class Person extends Model
 {
+    use Filterable;
+
     public $timestamps = false;
     protected $primaryKey = "iID";
     protected $table = "persons";
     protected $fillable = ['iID', 'sName', 'sFamily', 'sNationalCode', 'sEmail', 'sTel1', 'sMobile1', 'sDesc', 'iKind', 'bReal',
         'sPerson', 'sAddress', 'sCode', 'dateCreate', 'sWebUserName', 'sWebPassword', 'dateWebCreate', 'iWebState', 'sCompany', 'iCode', 'sWebActiveCode', 'iHesabTafsilyCode', 'iHesabTafsilyCode2', 'iMr', 'sCity', 'sState', 'dGPSx', 'dGPSy', 'sZone'];
-    protected $perPage = 30;
+    protected $perPage = 32;
     private static $filed = ['iID', 'iWebState', 'iKind', 'iCode', 'sName', 'sEmail', 'sTel1', 'sFamily', 'dateCreate', 'dateWebCreate', 'sMobile1', 'sWebUserName', 'sWebPassword', 'iMr', 'dateBirth', 'sDesc'];
     /**
      * @param $username
@@ -124,7 +127,7 @@ class Person extends Model
     }
 
     public function scopeRestaurant($query) {
-        return $query->where('iWebState', ACTIVE_STATE)/*->where('iKind', SELLER)*/;
+        return $query->where('iWebState', ACTIVE_STATE)->orderBy('iImportanceID', 'DESC')/*->where('iKind', SELLER)*/;
     }
 
     public function customRecords() {
