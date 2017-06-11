@@ -26,10 +26,6 @@ class HomeController extends Controller
     public function rules() {
         return view('restaurants.rules');
     }
-
-    public function recipe() {
-        return view('restaurants.recipe');
-    }
 }
 
 

@@ -59,14 +59,11 @@
             </div>
         </div>
     </div>
-
-
-    <div id="slider-container-ul-map">
-        <li data-toggle="modal"><a class="btn btn-default" ng-click="aroundRestaurants()"><span class="fa fa-location-arrow"></span> </a></li>
-    </div>
 </div>
 <div ng-controller="IndexController">
-
+    <div id="slider-container-ul-map">
+        <li data-toggle="modal"><a class="btn btn-default" data-toggle="modal" data-target="#map-modal" ng-click="aroundRestaurants()"><span class="fa fa-location-arrow"></span> </a></li>
+    </div>
 
     <!--/ Slider ends -->
 
@@ -322,5 +319,5 @@
 @include('home.footer')
 @endsection
 @section('script')
-    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBXACQBavdBb9r_GxJBiio7W3cQ_tFKKPo'></script>
 @endsection

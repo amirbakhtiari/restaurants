@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\News;
+use App\Model\Person;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,7 +49,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return News::find($id);
+        return News::findOrFail($id);
     }
 
     /**

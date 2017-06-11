@@ -38,22 +38,21 @@ Route::group(['namespace' => 'Restaurant'], function() {
    Route::post('/register', ['as' => 'restaurant.register', 'uses' => 'RestaurantController@register']);
    Route::get('/login', ['as' => 'restaurant.login.page', 'uses' => 'RestaurantController@showLogin']);
    Route::post('/login', ['as' => 'restaurant.login', 'uses' => 'RestaurantController@login']);
-
    Route::get('/restaurants', ['as' => 'restaurants.list', 'uses' => 'RestaurantController@showAllRestaurant']);
    Route::post('/restaurants', 'RestaurantController@listOfRestaurant');
-
 //   Route::get('/restaurant/{name}', ['as' => 'restaurant.showRestaurant', 'uses' => 'RestaurantController@showRestaurant']);
    Route::get('/restaurant/{name}', ['as' => 'show.restaurant.page', 'uses' => 'RestaurantController@showRestaurantPage']);
    Route::get('/search', ['as' => '', 'uses' => 'RestaurantController@search']);
    Route::get('/filter', 'RestaurantController@loadFilter');
    Route::get('/checkout', ['as' => 'restaurants.checkout', 'uses' => 'RestaurantController@checkout']);
    Route::post('/factorregister', ['factor.register', 'uses' => 'RestaurantController@factorRegister']);
-   Route::resource('complaint', 'ComplaintController', ['except' => ['create']]);
    Route::any('activation', 'RestaurantController@activation');
    Route::get('findRestaurants', 'RestaurantController@findRestaurants');
-   Route::get('newrestaurant', 'RestaurantController@newrestaurant');
+   Route::get('/recipe', ['as' => 'recipe.page', 'uses' => 'RestaurantController@recipe']);
+   Route::get('/showRecipe/{id}', 'RestaurantController@showRecipe');
+   Route::resource('complaint', 'ComplaintController', ['except' => ['create']]);
 });
-/**
+/**.
  * user routes
  */
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {

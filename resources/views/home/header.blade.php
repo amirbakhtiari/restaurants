@@ -50,6 +50,7 @@
                     <li><a href="{{route('about.page')}}">درباره ما</a></li>
                     <!--<li><a href="#gallery">گالری</a></li>-->
                     <li><a href="{{route('contact.page')}}">تماس باما</a></li>
+                    <li><a href="{{route('recipe.page')}}">دستور غذایی</a></li>
                 </ul>
                 <ul class="nav navbar-nav  page-scroll navbar-right">
                     @if(Session::has('customer_name'))

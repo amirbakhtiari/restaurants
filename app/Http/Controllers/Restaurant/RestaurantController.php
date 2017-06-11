@@ -12,6 +12,7 @@ use App\Model\FactorStuff;
 use App\Model\GeneralGroup;
 use App\Model\Person;
 use App\Model\ProductStuff;
+use App\Model\StuffsOrg;
 use App\RestaurantFilters;
 use App\Utility\SMS;
 use App\Utility\Utility;
@@ -273,5 +274,14 @@ class RestaurantController extends Controller
 
     public function newrestaurant(Request $request) {
         return Person::restaurant()->select('iID', 'sName', 'sCompany')->where('sState', $request->state)->orderBy('dateCreate', 'DESC')->limit(1)->get();
+    }
+
+    public function recipe($id = 0) {
+        $recipes = StuffsOrg::all();
+        return view('restaurants.recipe', ['recipes' => $recipes]);
+    }
+
+    public function showRecipe($id) {
+        return StuffsOrg::select('iID', 'sName', 'sDesc')->find($id);
     }
 }
